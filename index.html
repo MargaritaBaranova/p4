@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> Site </title>
+        <link rel="stylesheet" href="Style.css">
+        </head>
+        <body>
+            <div id="nav">
+                <div><a href="#ya">Я</a></div>
+                <div><a href="#o">О чём сайт?</a></div>
+                <div><a href="#g">Галерея</a></div>
+                <div><a href="#igra">Игра</a></div>
+                <div><a href="#s">Связь</a></div>
+            </div>
+
+            <div>
+                <img id="welcome" src="images/Welcome.png">
+            </div>
+
+            <h2>Итак, вот кто я:</h2><a id="ya"></a>
+
+            <div id="Rita" >
+                <div id="Rita1">
+                    <img src="images/i1.jpg" width=100%>
+                </div>
+                <div id="Ritatext">
+                    <p>Баранова</p>
+                    <p id="mar">Маргарита</p>
+                    <p id="al">Алексеевна</p><a id="o"></a>
+                </div>
+            </div>
+
+            <h2><a id="g"></a>О чем этот сайт?</h2>
+            <p id="po">Этот сайт служит для демонстрации моих навыков в создании сайтов.</p>
+
+            <h2>Галерея</h2>
+            <div id="g1">
+                <div>
+                    <img src="images/image1.jpg" width=100%>
+                </div>
+                <div>
+                    <img src="images/image2.jpg" width=100%>
+                </div>
+                <div>
+                    <img src="images/image3.jpg" width=100%>
+                </div>
+                <div>
+                    <img src="images/image4.jpg" width=100%>
+                </div>
+            </div>
+
+            <h2><a id="igra"></a>Найди синий</h2>
+
+            <p id="schet">Счёт: 0</p>
+
+            <div id="game">
+                <div onclick="fail()" class="play play1"></div>
+                <div onclick="fail()" class="play play2"></div>
+                <div onclick="fail()" class="play play3"></div>
+                <div onclick="Change()" class="play play4"></div>
+            </div>
+
+            <footer> <a id="s"></a>
+                <p>Отправка сообщения</p>
+                <form action="#" method="get" id="fform">
+                    <div id="c">
+                        <input placeholder="E-mail" name="e-m" type="email" class="textpole" required/>
+                        <input placeholder="Тема" name="tema" type="text" class="textpole" required/>
+                        <textarea placeholder="Текст письма" name="tttt" id="messagetext" class="textpole" required></textarea>
+                    </div>                
+                    <div id="buttons" >
+                        <button type="submit" class="btn btn1">Отправить</button>
+                        <button type="reset" class="btn btn2">Стереть всё</button>
+                    </div>
+                </form>
+            </footer>
+
+            <script>
+                let i = 0;
+                function Change() {
+                    document.querySelector('.play1').style.order = Math.floor(Math.random() * 4);
+                    document.querySelector('.play2').style.order = Math.floor(Math.random() * 4);
+                    document.querySelector('.play3').style.order = Math.floor(Math.random() * 4);
+                    document.querySelector('.play4').style.order = Math.floor(Math.random() * 4);
+                    i++;
+                    document.querySelector('#schet').textContent ="Счёт: " + i;
+                }
+                function fail() {
+                    i--;
+                    document.querySelector('#schet').textContent = "Счёт: " + i;
+                }
+
+                document.getElementById('fform').addEventListener('submit', otpravka);
+
+                function otpravka(e) {
+                    e.preventDefault();
+                    alert('Типо отправилось');
+                }
+            </script>
+        </body>
+</html>
